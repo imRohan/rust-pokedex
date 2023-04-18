@@ -1,23 +1,21 @@
-use clap::Parser;
+use cursive::views::{Dialog};
+use cursive;
 
-mod global;
-mod data;
+
 mod pokemon;
+mod data;
+mod pokemon_finder;
+mod search;
+mod show;
 
-#[derive(Parser)]
-struct Input {
-    // The name of the Pokemon
-    name: String,
-}
+use search::input;
 
 fn main() {
-    let args = Input::parse();
-    let name = args.name;
-    let pokemon: global::Pokemon = pokemon::find(&name);
-    let id = &pokemon.id;
-    let weight_min = &pokemon.weight.minimum;
-    let fast_count = &pokemon.attacks.fast.len();
-    let special_count = &pokemon.attacks.special.len();
-    let attack_count = fast_count + special_count;
-    println!("Found {name} - id: {}, weight: {}, attacks: {}, fast: {}, special: {}", id, weight_min, attack_count, fast_count, special_count);
+    let mut siv = cursive::default();
+
+    siv.add_layer(
+        Dialog::around(input())
+            .title("Pokédex")
+    );
+    siv.run();
 }
