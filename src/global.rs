@@ -20,8 +20,9 @@ pub struct Attack {
 }
 
 #[derive(Serialize, Deserialize)]
-pub struct AttackType {
-    name: Vec<Attack>
+pub struct Attacks {
+    pub fast: Vec<Attack>,
+    pub special: Vec<Attack>,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -35,6 +36,8 @@ pub struct Pokemon {
     pub weight: Range,
     pub height: Range,
     pub fleeRate: f32,
+    pub evolutions: Option<Vec<References>>,
     pub maxCP: i32,
     pub maxHP: i32,
+    pub attacks: Attacks,
 }

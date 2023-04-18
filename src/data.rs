@@ -4504,7 +4504,6 @@ pub fn pokemons() -> Vec<global::Pokemon> {
     "maxHP": 600,
     "attacks": {
       "fast": [
-        {},
         {
           "name": "Zen Headbutt",
           "type": "Psychic",
@@ -5995,7 +5994,6 @@ pub fn pokemons() -> Vec<global::Pokemon> {
     "maxHP": 1263,
     "attacks": {
       "fast": [
-        {},
         {
           "name": "Fury Cutter",
           "type": "Bug",
