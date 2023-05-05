@@ -1,8 +1,6 @@
-use serde_json;
+use crate::pokemon;
 
-use crate::global;
-
-pub fn pokemons() -> Vec<global::Pokemon> {
+pub fn pokemons() -> Vec<pokemon::Pokemon> {
     let raw_data = r#"
         [
   {
@@ -10532,6 +10530,6 @@ pub fn pokemons() -> Vec<global::Pokemon> {
   }
 ]"#;
 
-    let pokemons: Vec<global::Pokemon> = serde_json::from_str(raw_data).unwrap();
+    let pokemons: Vec<pokemon::Pokemon> = serde_json::from_str(raw_data).unwrap();
     return pokemons;
 }
